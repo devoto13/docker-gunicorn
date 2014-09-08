@@ -1,11 +1,11 @@
 #!/bin/bash
 
 echo "Starting $APP_NAME as `whoami`"
-cd /home/app/app
 exec gunicorn $APP_NAME.wsgi:application \
   --name $APP_NAME \
   --workers $NUM_WORKERS \
   --user=app \
-  --bind=unix:/home/app/run/gunicorn.sock \
+  --chdir=/home/app/ \
+  --bind=127.0.0.1:80 \
   --log-level=debug \
   --log-file=-

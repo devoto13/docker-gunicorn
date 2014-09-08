@@ -40,5 +40,9 @@ RUN chmod +x /usr/local/bin/run
 ENV NUM_WORKERS 4
 
 # Volumes
-RUN mkdir -p /home/app/app/logs /home/app/run
-VOLUME ['/home/app/app/logs', '/home/app/run']
+RUN mkdir -p /home/app/logs
+RUN chown app:app /home/app/logs
+VOLUME ['/home/app/logs']
+
+# Ports
+EXPOSE 80
