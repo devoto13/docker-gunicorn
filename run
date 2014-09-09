@@ -7,6 +7,6 @@ exec gunicorn $APP_NAME.wsgi:application \
   --user=app \
   --chdir=/home/app/ \
   --bind=0.0.0.0:8080 \
-  --proxy_allow_ips='*' \
+  --proxy-allow-from='*' \
   --log-level=debug \
   --log-file=-
