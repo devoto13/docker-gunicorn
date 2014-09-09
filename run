@@ -6,6 +6,6 @@ exec gunicorn $APP_NAME.wsgi:application \
   --workers $NUM_WORKERS \
   --user=app \
   --chdir=/home/app/ \
-  --bind=127.0.0.1:80 \
+  --bind=127.0.0.1:8080 \
   --log-level=debug \
   --log-file=-

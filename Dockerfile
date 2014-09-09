@@ -45,4 +45,4 @@ RUN chown app:app /home/app/logs
 VOLUME ['/home/app/logs']
 
 # Ports
-EXPOSE 80
+EXPOSE 8080
