@@ -29,8 +29,8 @@ RUN apt-get install -y python python-dev python-setuptools
 RUN easy_install pip
 RUN pip install gunicorn setproctitle
 
-# Setup a user for running the application
-RUN useradd app -d /home/app
+# Clean up APT when done
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install gunicorn running script
 ADD run /usr/local/bin/run
@@ -40,9 +40,8 @@ RUN chmod +x /usr/local/bin/run
 ENV NUM_WORKERS 4
 
 # Volumes
-RUN mkdir -p /home/app/logs
-RUN chown app:app /home/app/logs
-VOLUME ['/home/app/logs']
+RUN mkdir -p /root/app/logs/gunicorn
+VOLUME ['/root/app/logs']
 
 # Ports
 EXPOSE 8080
