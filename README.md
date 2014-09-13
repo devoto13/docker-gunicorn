@@ -43,6 +43,7 @@ Environment variable:
 
 You pass with `-e` docker option.
 
-Usage:
+Usage
+-----
 
 Image intended to be used as base image for another `Dockerfile`. Take a look at the `example/` directory.
