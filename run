@@ -1,11 +1,9 @@
 #!/bin/bash
 
-echo "Starting $APP_NAME as `whoami`"
-exec gunicorn $APP_NAME.wsgi:application \
+exec gunicorn $APP_WSGI \
   --name $APP_NAME \
-  --workers $NUM_WORKERS \
-  --chdir=/root/app/ \
-  --bind=0.0.0.0:8080 \
-  --proxy-allow-from='*' \
-  --access-logfile=/root/app/logs/gunicorn_access.log \
-  --error-logfile=/root/app/logs/gunicorn_error.log
+  --bind=0.0.0.0:80 \
+  --workers $APP_WORKERS \
+  --pythonpath=/root/app/ \
+  --access-logfile=/root/app/log/gunicorn_access.log \
+  --error-logfile=/root/app/log/gunicorn_error.log

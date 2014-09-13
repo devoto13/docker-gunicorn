@@ -25,20 +25,15 @@ RUN chmod +x /usr/local/bin/startup
 CMD ["/usr/local/bin/startup"]
 
 # Install global dependencies
-RUN apt-get install -y python python-dev python-setuptools
-RUN easy_install pip
+RUN apt-get install -y python python-dev python-setuptools python-pip
 RUN pip install gunicorn setproctitle
 
 # Install gunicorn running script
 ADD run /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 
-# Default ENV settings
-ENV NUM_WORKERS 4
-
 # Volumes
-RUN mkdir -p /root/app/logs/gunicorn
-VOLUME ['/root/app/logs']
+VOLUME ['/root/app/log']
 
 # Ports
-EXPOSE 8080
+EXPOSE 80
