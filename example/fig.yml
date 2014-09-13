@@ -1,0 +1,10 @@
+web:
+  build: .
+  ports:
+    - "80:80"
+  volumes:
+    - volumes/log:/root/app/log
+  environment:
+    - APP_NAME=test_app
+    - APP_WSGI=test_app.wsgi:application
+    - APP_WORKERS=4
