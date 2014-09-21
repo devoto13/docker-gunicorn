@@ -31,7 +31,7 @@ configuration.
 
 Volumes:
 
-* `/root/app/log`: Access log from the container using it.
+* `/root/app/logs`: Logs from the container using it.
 
 You pass with `-v` docker option. Don't forget to use absolute path here.
 

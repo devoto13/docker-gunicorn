@@ -5,5 +5,5 @@ exec gunicorn $APP_WSGI \
   --bind=0.0.0.0:80 \
   --workers $APP_WORKERS \
   --pythonpath=/root/app/ \
-  --access-logfile=/root/app/log/gunicorn_access.log \
-  --error-logfile=/root/app/log/gunicorn_error.log
+  --access-logfile=/root/app/logs/gunicorn_access.log \
+  --error-logfile=/root/app/logs/gunicorn_error.log

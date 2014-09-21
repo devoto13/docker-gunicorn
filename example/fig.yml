@@ -3,7 +3,7 @@ web:
   ports:
     - "80:80"
   volumes:
-    - volumes/log:/root/app/log
+    - volumes/log:/root/app/logs
   environment:
     - APP_NAME=test_app
     - APP_WSGI=test_app.wsgi:application
