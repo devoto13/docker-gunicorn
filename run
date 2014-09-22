@@ -1,9 +1,10 @@
 #!/bin/bash
 
 exec gunicorn $APP_WSGI \
-  --name $APP_NAME \
+  --name=$APP_NAME \
   --bind=0.0.0.0:80 \
-  --workers $APP_WORKERS \
+  --workers=$APP_WORKERS \
   --pythonpath=/root/app/ \
+  --proxy-allow-from='*' \
   --access-logfile=/root/app/logs/gunicorn_access.log \
   --error-logfile=/root/app/logs/gunicorn_error.log
