@@ -33,7 +33,7 @@ ADD run /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 
 # Volumes
-VOLUME ['/root/app/logs']
+VOLUME ["/root/app/logs"]
 
 # Ports
 EXPOSE 80
