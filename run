@@ -2,8 +2,15 @@
 
 exec gunicorn $APP_WSGI \
   --name=$APP_NAME \
-  --bind=0.0.0.0:80 \
+  --bind=${BIND:-0.0.0.0:80} \
   --workers=$APP_WORKERS \
+  --worker-class=${WORKER_CLASS:-sync} \
+  --worker-connections=${WORKER_CONNECTIONS:-1000} \
+  --backlog=${BACKLOG:-2048} \
+  --max-requests=${MAX_REQUESTS:-0} \
+  --timeout=${TIMEOUT:-30} \
+  --graceful-timeout=${GRACEFUL_TIMEOUT:-30} \
+  --keep-alive=${KEEPALIVE:-2} \
   --pythonpath=/root/app/ \
   --proxy-allow-from='*' \
   --access-logfile=/root/app/logs/gunicorn_access.log \
