@@ -3,7 +3,7 @@
 exec gunicorn $APP_WSGI \
   --name=$APP_NAME \
   --bind=${BIND:-0.0.0.0:80} \
-  --workers=$APP_WORKERS \
+  --workers=${APP_WORKERS:-1} \
   --worker-class=${WORKER_CLASS:-sync} \
   --worker-connections=${WORKER_CONNECTIONS:-1000} \
   --backlog=${BACKLOG:-2048} \

@@ -35,11 +35,19 @@ Volumes:
 
 You pass with `-v` docker option. Don't forget to use absolute path here.
 
-Environment variable:
+Environment variables (defaults are the same as Gunicorn defaults if opposite is not stated explicitly):
 
-* `APP_WSGI`: WSGI application to run.
-* `APP_NAME`: Application label.
-* `APP_WORKERS`: Number of workers to run.
+* `APP_WSGI` - **REQUIRED.** WSGI application to run.
+* `APP_NAME` - **REQUIRED.** Corresponds [proc_name](http://docs.gunicorn.org/en/latest/settings.html#proc-name).
+* `APP_WORKERS` - Corresponds [workers](http://docs.gunicorn.org/en/latest/settings.html#workers).
+* `BIND` - Corresponds [bind](http://docs.gunicorn.org/en/latest/settings.html#bind) (default: 0.0.0.0:80).
+* `WORKER_CLASS` - Corresponds [worker_class](http://docs.gunicorn.org/en/latest/settings.html#worker-class).
+* `WORKER_CONNECTIONS` - Corresponds [worker_connections](http://docs.gunicorn.org/en/latest/settings.html#worker-connections).
+* `BACKLOG` - Corresponds [backlog](http://docs.gunicorn.org/en/latest/settings.html#backlog).
+* `MAX_REQUESTS` - Corresponds [max_requests](http://docs.gunicorn.org/en/latest/settings.html#max-requests).
+* `TIMEOUT` - Corresponds [timeout](http://docs.gunicorn.org/en/latest/settings.html#timeout).
+* `GRACEFUL_TIMEOUT` - Corresponds [graceful_timeout](http://docs.gunicorn.org/en/latest/settings.html#graceful-timeout).
+* `KEEPALIVE` - Corresponds [keepalive](http://docs.gunicorn.org/en/latest/settings.html#keepalive).
 
 You pass with `-e` docker option.
 
